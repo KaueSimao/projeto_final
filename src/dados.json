@@ -1,0 +1,18 @@
+{
+  "aluno": [
+    {
+      "idAluno": 1,
+      "nome": "Kaue ",
+      "matricula": "599704",
+      "email": "kauesimao20@gmail.com"
+    }
+  ],
+  "professor": [
+    {
+      "idProfessor": 1,
+      "nome": "Renato ",
+      "rg": "5053764817",
+      "email": "renato231@gmail.com"
+    }
+  ]
+}
