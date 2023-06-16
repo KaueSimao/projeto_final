@@ -1,6 +1,6 @@
 <div class="text-center">
   <div class="mb-3">
-    <button class="btn btn-lg btn-secondary">Novo</button>
+    <button class="btn btn-lg btn-secondary" (click)="create()">Novo</button>
   </div>
   <table class="table table-dark">
     <thead>
@@ -14,9 +14,9 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr *ngFor="let aluno of alunos">
         <th scope="row">{{aluno.idAluno}}</th>
-        <td>{{aluno.name}}</td>
+        <td>{{aluno.nome}}</td>
         <td>{{aluno.matricula}}</td>
         <td>{{aluno.email}}</td>
         <td><button class="btn btn-light">Editar</button></td>
@@ -42,11 +42,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">{{professores.idProfessor}}</th>
-        <td>{{professores.name}}</td>
-        <td>{{professores.rg}}</td>
-        <td>{{professores.email}}</td>
+      <tr *ngFor="let professor of professores">
+        <th scope="row">{{professor.idProfessor}}</th>
+        <td>{{professor.nome}}</td>
+        <td>{{professor.rg}}</td>
+        <td>{{professor.email}}</td>
         <td><button class="btn btn-light">Editar</button></td>
         <td><button class="btn btn-light">Excluir</button></td>
       </tr>

@@ -7,7 +7,9 @@ import { ProfessoresComponent } from './professores/professores.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'professores', component: ProfessoresComponent },
-  { path: 'alunos', component: AlunosComponent }
+  { path: 'alunos', component: AlunosComponent },
+  { path: 'Createalunos', component: AlunosComponent },
+  {path: 'alunosDetails/:id', component: AlunosComponent }
 
 ];
 

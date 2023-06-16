@@ -11,9 +11,11 @@ export class AlunosService {
   url = "http://localhost:3000/client";
 
   constructor(private http: HttpClient) { }
+  
   getalunos(): Observable<Alunos[]> {
     return this.http.get<Alunos[]>(this.url)
   }
+
   getaluno(id: number): Observable<Alunos[]> {
     return this.http.get<Alunos[]>(`${this.url}/${id}`);
   }

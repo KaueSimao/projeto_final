@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './alunos.component.html',
   styleUrls: ['./alunos.component.css']
 })
-export class ClientFormComponent implements OnInit {
+export class AlunosComponent implements OnInit {
 
   formGroupClient: FormGroup;
   submitted: boolean = false;
@@ -23,11 +23,9 @@ export class ClientFormComponent implements OnInit {
   ) {
     this.formGroupClient = formBuilder.group({
       idAluno: [''],
-      name: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
-      rg: ['', [Validators.required]],
-      telefone: ['', [Validators.required]]
-
+      nome: ['', [Validators.required]],
+      matricula: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]]
     });
 
   }
@@ -36,8 +34,8 @@ export class ClientFormComponent implements OnInit {
     this.getAlunoById(id);
   }
 
-  getAlunostById(id: number) {
-    this.AlunosService.getAluno(idAlunos).subscribe({
+  getAlunoById(id: number) {
+    this.AlunosService.getalunos().subscribe({
       next: data => {
         this.formGroupClient.setValue(data);
         this.isEditing = true;
@@ -51,14 +49,14 @@ export class ClientFormComponent implements OnInit {
       if (this.isEditing) {
         this.AlunosService.update(this.formGroupClient.value).subscribe({
           next: () => {
-            this.router.navigate(['clients']);
+            this.router.navigate(['alunos']);
           }
         })
       }
       else {
         this.AlunosService.save(this.formGroupClient.value).subscribe({
           next: () => {
-            this.router.navigate(['clients']);
+            this.router.navigate(['alunos']);
           }
         })
       }
@@ -69,17 +67,14 @@ export class ClientFormComponent implements OnInit {
     this.router.navigate(['alunos']);
   }
 
-  get name(): any {
-    return this.formGroupClient.get("name");
+  get nome(): any {
+    return this.formGroupClient.get("nome");
+  }
+  get matricula(): any {
+    return this.formGroupClient.get("matricula");
+
   }
   get email(): any {
     return this.formGroupClient.get("email");
-
-  }
-  get rg(): any {
-    return this.formGroupClient.get("rg");
-  }
-  get telefone(): any {
-    return this.formGroupClient.get("telefone");
   }
 }
