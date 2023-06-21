@@ -1,9 +1,9 @@
 <div class="display-6 text-center">
   <div class="col-8 m-auto">
-    <form>
+    <form [formGroup]="formGroupAluno">
       <div class="mb-3">
         <div class="display-6 text-center">
-          Cadastro de Estudantes
+          Alunos
         </div>
         <label for="name" class="form-label">Nome:</label>
         <input type="text" class="form-control" id="name" formControlName="name" placeholder="Nome">
@@ -17,8 +17,8 @@
         </div>
       </div>
       <div>
-        <button class="btn btn-lg btn-dark">Salvar</button>
-        <button class="btn btn-lg btn-dark">Cancelar</button>
+        <button class="btn btn-lg btn-dark" (click)="saveAlunos()">Salvar</button>
+        <button class="btn btn-lg btn-dark" (click)="cancel()">Cancelar</button>
       </div>
     </form>
   </div>

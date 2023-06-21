@@ -8,18 +8,47 @@
         <label for="name" class="form-label">Nome:</label>
         <input type="text" class="form-control" id="name" formControlName="name" placeholder="Nome">
       </div>
+
       <div class="mb-3">
         <label for="rg" class="form-label">RG:</label>
         <input type="rg" class="form-control" id="rg" formControlName="rg" placeholder="RG">
         <div class="mb-3">
+
           <label for="email" class="form-label">Email:</label>
           <input type="email" class="form-control" id="email" formControlName="Email" placeholder="Email">
         </div>
+
       </div>
       <div>
-        <button class="btn btn-lg btn-dark">Salvar</button>
-        <button class="btn btn-lg btn-dark">Cancelar</button>
+        <button class="btn btn-lg btn-dark"(click)="saveProf()">Salvar</button>
       </div>
     </form>
+    <br>
   </div>
+</div>
+<div class="text-center">
+  <div class="mb-3">
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">IdProfessor</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Matricula</th>
+      <th scope="col">Email</th>
+      <th cope="col"> </th>
+      <th cope="col"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let professores of professores">
+      <th scope="row">{{professores.idProfessor}}</th>
+      <td>{{professores.nome}}</td>
+      <td>{{professores.rg}}</td>
+      <td>{{professores.email}}</td>
+      <td><button class="btn btn-light">Editar</button></td>
+      <td><button class="btn btn-light">Excluir</button></td>
+    </tr>
+  </tbody>
+</table>
+</div>
 </div>

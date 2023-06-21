@@ -15,7 +15,7 @@ import { transition } from '@angular/animations';
 export class HomeComponent implements OnInit {
 
   alunos: Alunos[] = [];
-  professores : Professores [] = [];
+  professores: Professores[] = [];
 
   constructor(private AlunosService: AlunosService,
     private router: Router) {
@@ -43,5 +43,5 @@ export class HomeComponent implements OnInit {
       next: () => this.loadAlunos()
     })
   }
-  
+
 }

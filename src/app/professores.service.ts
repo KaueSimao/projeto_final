@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProfessoresService {
-  url = "http://localhost:3000/client";
+  url = "http://localhost:3000/professores";
 
   constructor(private http: HttpClient) { }
 
@@ -20,13 +20,8 @@ export class ProfessoresService {
     return this.http.get<Professores[]>(`${this.url}/${id}`);
   }
 
-  save(professor: Professores): Observable<Professores> {
+  saveProf(professor: Professores): Observable<Professores> {
     return this.http.post<Professores>(this.url, professor);
-  }
-  update(professor: Professores): Observable<Professores> {
-    return this.http.put<Professores>(`${this.url}/${professor.idProfessor}`, professor);
-  }
-  delete(professor: Professores): Observable<void> {
-    return this.http.delete<void>(`${this.url}/${professor.idProfessor}`);
-  }
+
+}
 }

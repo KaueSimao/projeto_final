@@ -26,30 +26,3 @@
   </table>
 </div>
 
-<div class="text-center">
-  <div class="mb-3">
-    <button class="btn btn-lg btn-secondary">Novo</button>
-  </div>
-  <table class="table table-dark">
-    <thead>
-      <tr>
-        <th scope="col">IdProfessor</th>
-        <th scope="col">Nome</th>
-        <th scope="col">RG</th>
-        <th cope="col">Email</th>
-        <th cope="col"> </th>
-        <th cope="col"> </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let professor of professores">
-        <th scope="row">{{professor.idProfessor}}</th>
-        <td>{{professor.nome}}</td>
-        <td>{{professor.rg}}</td>
-        <td>{{professor.email}}</td>
-        <td><button class="btn btn-light">Editar</button></td>
-        <td><button class="btn btn-light">Excluir</button></td>
-      </tr>
-    </tbody>
-  </table>
-</div>

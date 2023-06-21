@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AlunosComponent implements OnInit {
 
-  formGroupClient: FormGroup;
+  formGroupAluno: FormGroup;
   submitted: boolean = false;
   isEditing: boolean = false;
 
@@ -21,7 +21,7 @@ export class AlunosComponent implements OnInit {
     private router: Router
 
   ) {
-    this.formGroupClient = formBuilder.group({
+    this.formGroupAluno = formBuilder.group({
       idAluno: [''],
       nome: ['', [Validators.required]],
       matricula: ['', [Validators.required]],
@@ -37,26 +37,26 @@ export class AlunosComponent implements OnInit {
   getAlunoById(id: number) {
     this.AlunosService.getalunos().subscribe({
       next: data => {
-        this.formGroupClient.setValue(data);
+        this.formGroupAluno.setValue(data);
         this.isEditing = true;
       }
     })
   }
 
-  save() {
+  saveAlunos() {
     this.submitted = true;
-    if (this.formGroupClient.value) {
+    if (this.formGroupAluno.value) {
       if (this.isEditing) {
-        this.AlunosService.update(this.formGroupClient.value).subscribe({
+        this.AlunosService.update(this.formGroupAluno.value).subscribe({
           next: () => {
-            this.router.navigate(['alunos']);
+            this.router.navigate(['home']);
           }
         })
       }
       else {
-        this.AlunosService.save(this.formGroupClient.value).subscribe({
+        this.AlunosService.save(this.formGroupAluno.value).subscribe({
           next: () => {
-            this.router.navigate(['alunos']);
+            this.router.navigate(['']);
           }
         })
       }
@@ -64,17 +64,17 @@ export class AlunosComponent implements OnInit {
   }
 
   cancel() {
-    this.router.navigate(['alunos']);
+    this.router.navigate(['home']);
   }
 
   get nome(): any {
-    return this.formGroupClient.get("nome");
+    return this.formGroupAluno.get("nome");
   }
   get matricula(): any {
-    return this.formGroupClient.get("matricula");
+    return this.formGroupAluno.get("matricula");
 
   }
   get email(): any {
-    return this.formGroupClient.get("email");
+    return this.formGroupAluno.get("email");
   }
 }

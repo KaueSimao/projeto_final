@@ -8,10 +8,10 @@ import { Alunos } from './alunos';
   providedIn: 'root'
 })
 export class AlunosService {
-  url = "http://localhost:3000/client";
+  url = "http://localhost:3000";
 
   constructor(private http: HttpClient) { }
-  
+
   getalunos(): Observable<Alunos[]> {
     return this.http.get<Alunos[]>(this.url)
   }
