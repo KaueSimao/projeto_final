@@ -45,7 +45,7 @@ export class AlunosComponent implements OnInit {
 
   saveAlunos() {
     this.submitted = true;
-    if (this.formGroupAluno.value) {
+    if (this.formGroupAluno.valid) {
       if (this.isEditing) {
         this.AlunosService.update(this.formGroupAluno.value).subscribe({
           next: () => {
@@ -56,7 +56,7 @@ export class AlunosComponent implements OnInit {
       else {
         this.AlunosService.save(this.formGroupAluno.value).subscribe({
           next: () => {
-            this.router.navigate(['']);
+            this.router.navigate(['home']);
           }
         })
       }

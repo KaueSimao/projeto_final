@@ -1,20 +1,33 @@
 <div class="display-6 text-center">
   <div class="col-8 m-auto">
-    <form [formGroup]="formGroupAluno">
+    <form>
       <div class="mb-3">
         <div class="display-6 text-center">
           Alunos
         </div>
+        
         <label for="name" class="form-label">Nome:</label>
         <input type="text" class="form-control" id="name" formControlName="name" placeholder="Nome">
       </div>
+      <div *ngIf="submitted && nome.invalid">
+        <small class="text-danger">Nome inválido</small>
+      </div>
+
       <div class="mb-3">
-        <label for="matricula" class="form-label">Matricula:</label>
+        <label for="matricula" class="form-label">Matrícula:</label>
         <input type="matricula" class="form-control" id="matricula" formControlName="matricula" placeholder="matricula">
         <div class="mb-3">
+          <div *ngIf="submitted && matricula.invalid">
+            <small class="text-danger">Matrícula inválida</small>
+          </div>
+
           <label for="email" class="form-label">Email:</label>
           <input type="email" class="form-control" id="email" formControlName="Email" placeholder="Email">
         </div>
+        <div *ngIf="submitted && email.invalid">
+          <small class="text-danger">Email inválido</small>
+        </div>
+
       </div>
       <div>
         <button class="btn btn-lg btn-dark" (click)="saveAlunos()">Salvar</button>

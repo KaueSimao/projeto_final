@@ -8,7 +8,7 @@ import { Alunos } from './alunos';
   providedIn: 'root'
 })
 export class AlunosService {
-  url = "http://localhost:3000";
+  url = "http://localhost:3000/alunos";
 
   constructor(private http: HttpClient) { }
 

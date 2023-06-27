@@ -16,7 +16,7 @@
     <tbody>
       <tr *ngFor="let aluno of alunos">
         <th scope="row">{{aluno.idAluno}}</th>
-        <td>{{aluno.nome}}</td>
+        <td>{{aluno.nome | uppercase}}</td>
         <td>{{aluno.matricula}}</td>
         <td>{{aluno.email}}</td>
         <td><button class="btn btn-light">Editar</button></td>

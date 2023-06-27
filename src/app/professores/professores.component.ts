@@ -20,7 +20,7 @@ export class ProfessoresComponent implements OnInit {
       idProfessor: [''],
       nome: ['', [Validators.required]],
       rg: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]]
+      email: ['', [Validators.required]]
     });
   }
   ngOnInit(): void {
@@ -43,7 +43,6 @@ export class ProfessoresComponent implements OnInit {
             this.loadProfessor();
             this.FormGroupProf.reset();
             this.isEditing = false;
-            this.submitted = false;
           }
         });
       } else {
